@@ -1,0 +1,485 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  font-family: "Comic Sans MS", "Poppins", cursive, sans-serif;
+  background:
+    linear-gradient(rgba(255, 182, 210, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 182, 210, 0.35) 1px, transparent 1px),
+    linear-gradient(to bottom, #baf7ea, #ffd6e8, #fff3c9);
+  background-size: 45px 45px, 45px 45px, cover;
+  overflow: hidden;
+}
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.page {
+  display: none;
+  height: 100vh;
+  padding: 28px 16px;
+  text-align: center;
+  animation: fade 0.5s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* TITLE */
+
+.title-pill {
+  width: min(92vw, 390px);
+  margin: 0 auto 25px;
+  background: white;
+  color: #e83fa8;
+  border: 6px solid #ff9aca;
+  border-radius: 35px;
+  padding: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 6px 8px 0 #f69bc1;
+}
+
+/* START AND FINAL CARDS */
+
+.window-card,
+.final-card {
+  width: min(92vw, 390px);
+  margin: clamp(20px, 5vh, 55px) auto 0;
+  background: white;
+  border: 6px solid #d85ca1;
+  border-radius: 28px;
+  padding: 35px 22px;
+  box-shadow: 8px 8px 0 #f69bc1;
+}
+
+.window-card.blue {
+  border-color: #6fb7ee;
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-bottom: 25px;
+}
+
+.dots span {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ff95c8;
+  border: 3px solid #c94991;
+}
+
+.bear-box {
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  border: 5px solid #ff9aca;
+  border-radius: 28px;
+  background: white;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 8px 8px 0 #ffc5dc;
+  animation: floatBear 3s ease-in-out infinite;
+}
+
+.bear-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes floatBear {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+h1 {
+  color: #e83fa8;
+  font-size: 36px;
+  margin: 25px 0 15px;
+}
+
+p {
+  color: #7b6f73;
+  font-size: 19px;
+  line-height: 1.45;
+}
+
+button {
+  margin-top: 25px;
+  padding: 15px 38px;
+  border: none;
+  border-radius: 40px;
+  background: #ee3dad;
+  color: white;
+  font-size: 21px;
+  font-weight: bold;
+  box-shadow: 0 8px 0 #c7007a;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:active {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 #c7007a;
+}
+
+/* HEART GAME */
+
+.heart-area {
+  position: relative;
+  height: 390px;
+  margin-top: 5px;
+}
+
+.heart {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 54px;
+  filter: drop-shadow(4px 6px 0 rgba(0,0,0,0.15));
+  transition: 0.3s ease;
+}
+
+.heart1 { bottom: 10px; }
+.heart2 { bottom: 105px; }
+.heart3 { bottom: 200px; }
+.heart4 { bottom: 295px; }
+
+.heart.pop {
+  animation: popHeart 0.45s ease forwards;
+}
+
+@keyframes popHeart {
+  0% { transform: translateX(-50%) scale(1); opacity: 1; }
+  60% { transform: translateX(-50%) scale(1.6); opacity: 0.8; }
+  100% { transform: translateX(-50%) scale(0); opacity: 0; }
+}
+
+.heart-message {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: white;
+  border: 4px solid #ff9aca;
+  border-radius: 20px;
+  padding: 13px 16px;
+  font-size: 16px;
+  color: #6d5f64;
+  box-shadow: 5px 6px 0 #ffc5dc;
+  animation: messagePop 0.45s ease;
+  z-index: 5;
+}
+
+@keyframes messagePop {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* BOW */
+
+.bow-area {
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.bow-wrapper {
+  position: relative;
+  width: 250px;
+  height: 135px;
+  margin: auto;
+}
+
+.bow-shape {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  width: 210px;
+  height: 80px;
+  transform: translateX(-50%);
+  border-top: 10px solid #b7aeb1;
+  border-radius: 50% 50% 0 0;
+  filter: drop-shadow(3px 5px 3px rgba(0,0,0,0.15));
+}
+
+.bow-string {
+  position: absolute;
+  left: 50%;
+  bottom: 36px;
+  width: 205px;
+  height: 3px;
+  background: white;
+  transform: translateX(-50%);
+  box-shadow: 0 0 12px white;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #ff2f98;
+  border: 7px solid white;
+  box-shadow: 0 0 18px rgba(255, 80, 180, 0.5);
+  cursor: grab;
+  transition: transform 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  width: 8px;
+  height: 115px;
+  background: #8b6f62;
+  transform: translateX(-50%);
+  border-radius: 8px;
+}
+
+.arrow::before {
+  content: "▲";
+  position: absolute;
+  left: 50%;
+  bottom: 132px;
+  transform: translateX(-50%);
+  color: #9fa4a8;
+  font-size: 28px;
+}
+
+.arrow-head,
+.arrow-line,
+.arrow-tail {
+  display: none;
+}
+
+.arrow.dragging {
+  transform: translateX(-50%) translateY(75px);
+}
+
+.bow-area p {
+  margin-top: 4px;
+  color: #e83fa8;
+  font-size: 21px;
+  font-weight: bold;
+}
+
+/* FLIP PAGE */
+
+.flip-card {
+  width: min(92vw, 390px);
+  height: 480px;
+  margin: 35px auto 0;
+  background: #fffdf4;
+  border: 6px solid #ff9aca;
+  border-radius: 32px;
+  box-shadow: 8px 8px 0 #ffc5dc;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 25px 20px;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.gif-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 25px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.gif-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.flip-card button {
+  margin-top: 0;
+  padding: 14px 38px;
+  font-size: 20px;
+}
+
+/* MESSAGE PAGE */
+
+#messagePage {
+  overflow: hidden;
+}
+
+.letter-card {
+  width: min(92vw, 390px);
+  height: min(62vh, 560px);
+  margin: 20px auto 0;
+  overflow-y: auto;
+  padding: 22px 18px 22px 22px;
+  background: #fffdf4;
+  border: 5px solid #ff9aca;
+  border-radius: 25px;
+  box-shadow: 8px 8px 0 #ffc5dc;
+  text-align: left;
+}
+
+.letter-card h2 {
+  color: #e83fa8;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.letter-card p {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #67595f;
+}
+
+.letter-card h3 {
+  text-align: right;
+  color: #e83fa8;
+  font-size: 28px;
+}
+
+.letter-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.letter-card::-webkit-scrollbar-thumb {
+  background: #ff8fc7;
+  border-radius: 20px;
+}
+
+.letter-card::-webkit-scrollbar-track {
+  background: #ffe3f0;
+  border-radius: 20px;
+}
+
+/* FINAL */
+
+.final-card {
+  margin-top: clamp(60px, 12vh, 120px);
+  border: 8px solid #b6f27b;
+}
+
+.final-gif {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 20px;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.final-gif img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app {
+    height: min(100vh, 932px);
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 30px 14px;
+  }
+
+  .title-pill {
+    font-size: 21px;
+    padding: 14px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    font-size: 17px;
+  }
+
+  .letter-card p {
+    font-size: 17px;
+  }
+
+  button {
+    font-size: 19px;
+    padding: 14px 34px;
+  }
+
+  .heart-area {
+    height: 360px;
+  }
+
+  .heart4 { bottom: 270px; }
+  .heart3 { bottom: 180px; }
+  .heart2 { bottom: 90px; }
+  .heart1 { bottom: 0; }
+
+  .bow-area {
+    bottom: 18px;
+  }
+
+  .gif-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .flip-card {
+    height: 455px;
+  }
+}

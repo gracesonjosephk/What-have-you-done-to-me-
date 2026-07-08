@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>w
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Message</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="app">
+
+    <!-- PAGE 1 -->
+    <section class="page active" id="startPage">
+      <div class="window-card blue">
+        <div class="dots">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div class="bear-box">
+          <img src="assets/bubu-dudu.gif" alt="Cute Bear">
+        </div>
+        <h1>Hi Princess</h1>
+        <p>I made a little something just for you.</p>
+        <p>Because you don't deserve the bare minimum. You deserve the whole universe because you are more than anyone could ever ask for.</p>
+
+        <button onclick="goToGame()">Let's Go! ♡</button>
+      </div>
+    </section>
+
+    <!-- PAGE 2 HEART GAME -->
+    <section class="page" id="gamePage">
+      <div class="title-pill">Only after loving you</div>
+
+      <div class="heart-area">
+        <div class="heart heart4" data-msg="I find another reason to live. ❤️">💗</div>
+        <div class="heart heart3" data-msg="My soul feel alive again.">💗</div>
+        <div class="heart heart2" data-msg="I find comfort and peace. 🤍">💗</div>
+        <div class="heart heart1" data-msg="I finally feel at ease.🌹">💗</div>
+      </div>
+
+      <div class="bow-area">
+        <div class="bow-wrapper">
+          <div class="bow-string"></div>
+          <div class="bow-shape"></div>
+
+          <div class="arrow" id="arrow">
+            <span class="arrow-head">➤</span>
+            <span class="arrow-line"></span>
+            <span class="arrow-tail">❯❯</span>
+          </div>
+        </div>
+
+        <p>Drag me down!</p>
+      </div>
+    </section>
+
+    <!-- PAGE 3 FLIP -->
+    <section class="page" id="flipPage">
+      <div class="title-pill">There's something I have wanted to tell you...</div>
+
+      <div class="flip-card" onclick="showMessagePage()">
+        <div class="gif-circle">
+          <img src="assets/2.gif" alt="Cute GIF">
+        </div>
+        <button>Tap to flip...</button>
+      </div>
+    </section>
+
+    <!-- PAGE 4 MESSAGE -->
+    <section class="page" id="messagePage">
+      <div class="title-pill">Special message for special you!</div>
+
+      <div class="letter-card">
+        <h2>Hey Princess</h2>
+        <p>I don't know who you truly are to me, But I know this much. Only after falling in love with you, I find comfort and peace. You feel like a victory already won. You make my soul feel alive again and somehow i find another reason to live.</p>
+        <p>Sometimes i wonder, What have you done to me?</p>
+        <p>Why did you steal my heart away?</p>
+        <p>Why did your love feels so magical?</p>
+        <p>Now I am wandering, lost, like a star separated from the moon</p>
+        <p>Why have I lost my heart so completely?</p>
+        <p>Stay forever so my heart can find its peace. Every sorrow that comes in my way simply slips away when i fill my eyes with you. My eyes and heart never get enough of you. I could look at you forever no matter how much I keep looking at you. I can't stop it. Quietly you filled my life with fragrance.</p>
+        <p>You are my heart and you are my life. How do I make you understand? Just keep a little faith in us. How do i ask you to stay? Stay forever with me.</p>
+        <h3>Always Yours!</h3>
+      </div>
+
+      <button onclick="showFinalPage()">Continue ♡</button>
+    </section>
+
+    <!-- PAGE 5 FINAL -->
+    <section class="page" id="finalPage">
+      <div class="final-card">
+        <div class="final-gif">
+          <img src="assets/3'.gif" alt="Cute GIF">
+        </div>
+        <h1>You are Mine!</h1>
+        <p>Never forget it.</p>
+        <button onclick="location.reload()">Read Again ↻</button>
+      </div>
+    </section>
+
+  </main>
+  
+  <script src="script.js"></script>
+</body>
+</html>
